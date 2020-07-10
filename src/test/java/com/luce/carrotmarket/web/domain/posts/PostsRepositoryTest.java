@@ -26,6 +26,7 @@ public class PostsRepositoryTest {
         postsRepository.deleteAll();
     }
 
+    /*
     @Test
     public void 게시글저장_불러오기() {
         //given
@@ -46,6 +47,7 @@ public class PostsRepositoryTest {
         assertThat(posts.getTitle()).isEqualTo(title);
         assertThat(posts.getContent()).isEqualTo(content);
     }
+    */
 
     @Test
     public void BaseTimeEntity_등록() {

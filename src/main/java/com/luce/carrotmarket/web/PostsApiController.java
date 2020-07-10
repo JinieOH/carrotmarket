@@ -3,6 +3,7 @@ package com.luce.carrotmarket.web;
 import com.luce.carrotmarket.service.PostsService;
 //import com.luce.carrotmarket.web.dto.PostsListResponseDto;
 //import com.luce.carrotmarket.web.dto.PostsResponseDto;
+import com.luce.carrotmarket.web.dto.PostsListResponseDto;
 import com.luce.carrotmarket.web.dto.PostsResponseDto;
 import com.luce.carrotmarket.web.dto.PostsSaveRequestDto;
 //import com.luce.carrotmarket.web.dto.PostsUpdateRequestDto;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -42,11 +45,9 @@ public class PostsApiController {
     public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);
     }
-    /*
 
     @GetMapping("/api/v1/posts/list")
     public List<PostsListResponseDto> findAll() {
         return postsService.findAllDesc();
     }
-    */
 }
