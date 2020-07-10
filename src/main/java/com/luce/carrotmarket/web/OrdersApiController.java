@@ -22,7 +22,7 @@ public class OrdersApiController {
         return "OrdersApiController";
     }
 
-    @GetMapping("/api/order/v1/detailInfo/{id}")
+    @GetMapping("/api/order/v1/detailInfo/{seq}")
     public OrdersResponseDto findById(@PathVariable Long seq) {
         return ordersService.findById(seq);
     }
