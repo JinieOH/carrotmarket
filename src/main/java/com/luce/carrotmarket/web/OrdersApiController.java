@@ -17,17 +17,17 @@ public class OrdersApiController {
 
     private final OrdersService ordersService;
 
-    @GetMapping("/order")
+    @GetMapping("/api/order")
     public String index(Model model) {
         return "OrdersApiController";
     }
 
-    @GetMapping("/order/v1/orders/{id}")
-    public OrdersResponseDto findById(@PathVariable Long id) {
-        return ordersService.findById(id);
+    @GetMapping("/api/order/v1/detailInfo/{id}")
+    public OrdersResponseDto findById(@PathVariable Long seq) {
+        return ordersService.findById(seq);
     }
 
-    @GetMapping("/api/v1/orders/list")
+    @GetMapping("/api/order/v1/list")
     public List<OrdersListResponseDto> findAllDesc() {
         return ordersService.findAllDesc();
     }

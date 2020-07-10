@@ -24,8 +24,8 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api() {
-        version = "v0.1";
-        title = "당근 API " + version;
+        version = "v1.0";
+        title = "당근마켓 API " + version;
 
         List<ResponseMessage> responseMessages = new ArrayList<>();
         responseMessages.add(new ResponseMessageBuilder()
@@ -50,9 +50,8 @@ public class SwaggerConfig {
                 .useDefaultResponseMessages(false)
                 .groupName(version)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.luce.danngn.web"))
-                //.apis(RequestHandlerSelectors.basePackage("com.luce.danngn.swagger.api.v1"))
-                .paths(PathSelectors.ant("/home/**"))
+                .apis(RequestHandlerSelectors.basePackage("com.luce.carrotmarket.web"))
+                .paths(PathSelectors.ant("/api/order/**"))
                 .build()
                 .apiInfo(apiInfo(title, version))
                 .globalResponseMessage(RequestMethod.GET, responseMessages);
@@ -61,7 +60,7 @@ public class SwaggerConfig {
     /*
     @Bean
     public Docket apiV1() {
-        version = "V1";
+        version = "v1.0";
         title = "당근 API " + version;
 
         return new Docket(DocumentationType.SWAGGER_2)
@@ -69,14 +68,14 @@ public class SwaggerConfig {
                 .groupName(version)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.luce.danngn.swagger.api.v1"))
-                .paths(PathSelectors.ant("/v1/api/**"))
+                .paths(PathSelectors.ant("/api/**"))
                 .build()
                 .apiInfo(apiInfo(title, version));
     }
 
     @Bean
     public Docket apiV2() {
-        version = "V2";
+        version = "v2.0";
         title = "당근 API " + version;
 
         return new Docket(DocumentationType.SWAGGER_2)
@@ -84,7 +83,7 @@ public class SwaggerConfig {
                 .groupName(version)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.luce.danngn.swagger.api.v2"))
-                .paths(PathSelectors.ant("/v2/api/**"))
+                .paths(PathSelectors.ant("/api/**"))
                 .build()
                 .apiInfo(apiInfo(title, version));
     }
@@ -92,9 +91,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo(String title, String version) {
         return new ApiInfo(
-                title, "Swagger로 생성한 당근 API Docs",
-                version, "www.example.com",
-                new Contact("Contact Me", "www.example.com", "foo@example.com"), "Licenses", "www.example.com",
+                title, "Swagger로 생성한 당근마켓 AP Docs",
+                version, null, null, null, null,
                 new ArrayList<>());
     }
 
