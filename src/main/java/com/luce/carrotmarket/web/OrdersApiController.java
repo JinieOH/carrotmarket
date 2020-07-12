@@ -3,11 +3,10 @@ package com.luce.carrotmarket.web;
 import com.luce.carrotmarket.web.dto.OrdersListResponseDto;
 import com.luce.carrotmarket.web.dto.OrdersResponseDto;
 import com.luce.carrotmarket.service.OrdersService;
+import com.luce.carrotmarket.web.dto.orders.OrdersSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +29,11 @@ public class OrdersApiController {
     @GetMapping("/api/order/v1/list")
     public List<OrdersListResponseDto> findAllDesc() {
         return ordersService.findAllDesc();
+    }
+
+    @PostMapping("/api/order/v1/orders")
+    public Long save(@RequestBody OrdersSaveRequestDto requestDto) {
+        return ordersService.save(requestDto);
     }
 
 }

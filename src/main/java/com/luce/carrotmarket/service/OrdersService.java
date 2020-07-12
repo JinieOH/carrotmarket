@@ -4,6 +4,7 @@ import com.luce.carrotmarket.domain.orders.Orders;
 import com.luce.carrotmarket.domain.orders.OrdersRepository;
 import com.luce.carrotmarket.web.dto.OrdersListResponseDto;
 import com.luce.carrotmarket.web.dto.OrdersResponseDto;
+import com.luce.carrotmarket.web.dto.orders.OrdersSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,5 +30,10 @@ public class OrdersService {
         return ordersRepository.findAllDesc().stream()
                 .map(OrdersListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public Long save(OrdersSaveRequestDto requestDto) {
+        return ordersRepository.save(requestDto.toEntity()).getSeq();
     }
 }

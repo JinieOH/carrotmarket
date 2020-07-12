@@ -20,7 +20,7 @@ public class Orders extends BaseTimeEntity {
     private String date;
 
     @Column(nullable = false)
-    private String saleUsrID;
+    private String salusrid;
 
     @Column(nullable = false)
     private String ctgCD;
@@ -31,21 +31,21 @@ public class Orders extends BaseTimeEntity {
     @Column(columnDefinition = "TEXT", nullable = true)
     private String contents;
     private Integer amount;
-    private String regUsrID;
-    private String chgUsrID;
+    private String createusrid;
+    private String modifiedusrid;
 
     @Builder
-    public Orders(String date, String saleUsrID, String ctgCD,
+    public Orders(String date, String salusrid, String ctgCD,
                   String title, String contents, Integer amount,
-                  String regUsrID, String chgUsrID) {
+                  String createusrid, String modifiedusrid) {
         this.date = date;
-        this.saleUsrID = saleUsrID;
+        this.salusrid = salusrid;
         this.ctgCD = ctgCD;
         this.title = title;
         this.contents = contents;
         this.amount = amount;
-        this.regUsrID = regUsrID;
-        this.chgUsrID = chgUsrID;
+        this.createusrid = createusrid;
+        this.modifiedusrid = modifiedusrid;
     }
 
 
